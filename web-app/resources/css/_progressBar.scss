@@ -1,0 +1,123 @@
+// Variables
+$progress-container-size: calc(var(--radius) * 2px);
+$progress-bar-width: 20px;
+
+.progressBar {
+    width: 100%;
+    max-width: 60em;
+}
+
+.progress-bar-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 40px;
+
+    h2 {
+        padding: 0;
+    }
+
+    .progress-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: $progress-container-size;
+        height: $progress-container-size;
+        position: relative;
+        height: auto;
+
+        .outer {
+            height: $progress-container-size;
+            width: $progress-container-size;
+            padding: $progress-bar-width;
+            border-radius: 50%;
+        }
+
+        .inner {
+            height: calc($progress-container-size - (2 * $progress-bar-width));
+            width: calc($progress-container-size - (2 * $progress-bar-width));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        circle {
+            fill: none;
+            stroke: var(--clr); //url(#GradientColor);
+            stroke-width: $progress-bar-width;
+            stroke-dasharray: 450;
+            stroke-dashoffset: 450;
+            animation: anim 2s linear forwards;
+
+            // calc(var(--num) / 100 * 2s + 0.2s) linear forwards; // for same loading speed
+            // 2s // for same loading time
+        }
+
+        @keyframes anim {
+            0% {
+                stroke-dashoffset: 450;
+            }
+            100% {
+                stroke-dashoffset: calc(450px - (450 * var(--num) * 1px / 100));
+            }
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(270deg);
+        }
+
+        .progress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                font-weight: 700;
+                font-size: 1.8em;
+            }
+
+            p {
+                font-weight: 300;
+                font-size: 0.75em;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+        }
+
+        .description {
+            padding-top: 0.5em;
+            text-align: center;
+        }
+    }
+}
+
+@include themify($themes) {
+    .progress-bar-container {
+        .progress-container {
+            .outer {
+                background-color: themed("progress-bar-ring");
+                box-shadow:
+                    6px 6px 10px -1px themed("progress-bar-shadow"),
+                    -6px -6px 10px -1px themed("progress-bar-shadow");
+            }
+            .inner {
+                background-color: themed("section-background-color");
+                box-shadow:
+                    inset 4px 4px 6px -1px
+                        rgba(themed("progress-bar-shadow"), 0.2),
+                    inset -4px -4px 6px -1px
+                        rgba(themed("progress-bar-shadow"), 0.7),
+                    -0.5px -0.5px 0px rgba(themed("progress-bar-shadow"), 1),
+                    0.5px 0.5px 0px rgba(themed("progress-bar-shadow"), 0.15),
+                    0px 12px 10px -10px
+                        rgba(themed("progress-bar-shadow"), 0.05);
+            }
+        }
+    }
+}

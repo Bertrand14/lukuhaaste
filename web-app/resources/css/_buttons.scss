@@ -1,0 +1,62 @@
+button,
+.button {
+    border: none;
+    padding: $padding-small $padding-large;
+    border-radius: $rounding-small;
+    //margin-top:$margin-large;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+@include themify($themes) {
+    button,
+    .button {
+        background-color: themed("button-color");
+        color: themed("text");
+        &.primary {
+            background-color: darken(themed("primary"), 20%);
+            &:hover {
+                background-color: darken(themed("primary"), 30%);
+            }
+        }
+        &.secondary {
+            background-color: darken(themed("secondary"), 20%);
+            &:hover {
+                background-color: darken(themed("secondary"), 30%);
+            }
+        }
+        &.success {
+            background-color: darken(themed("success"), 20%);
+            &:hover {
+                background-color: darken(themed("success"), 30%);
+            }
+        }
+        &.info {
+            background-color: darken(themed("info"), 20%);
+            &:hover {
+                background-color: darken(themed("info"), 30%);
+            }
+        }
+        &.warning {
+            background-color: darken(themed("warning"), 20%);
+            &:hover {
+                background-color: darken(themed("warning"), 30%);
+            }
+        }
+        &.danger {
+            background-color: darken(themed("danger"), 20%);
+            &:hover {
+                background-color: darken(themed("danger"), 30%);
+            }
+        }
+        &:hover {
+            background-color: darken(themed("button-color"), 10%);
+        }
+    }
+}

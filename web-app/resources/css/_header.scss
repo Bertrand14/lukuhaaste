@@ -1,0 +1,18 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3em;
+    div {
+        img {
+            max-width: 120px;
+        }
+    }
+}
+
+@include themify($themes) {
+    header {
+      color: themed("text");
+      background-color: themed("bg");
+    }
+};

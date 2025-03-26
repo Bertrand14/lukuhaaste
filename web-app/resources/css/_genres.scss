@@ -1,0 +1,11 @@
+.genres-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .genre {
+        border: 2px solid gray;
+        border-radius: 0.5em;
+        padding: 1em;
+        margin: 1em;
+    }
+}

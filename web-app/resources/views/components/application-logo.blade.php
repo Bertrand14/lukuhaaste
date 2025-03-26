@@ -1,0 +1,1 @@
+<img src="/images/toki_logo.webp" alt="Toki logo" style="width:10em">

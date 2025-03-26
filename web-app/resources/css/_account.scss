@@ -1,0 +1,22 @@
+.account {
+    .content {
+        border-radius: 0.5em;
+    }
+
+    .error li {
+        color: red;
+    }
+
+    #remember_me:checked {
+        background-color: hsl(0, 0%, 25%) !important;
+    }
+}
+
+@include themify($themes) {
+    .account {
+        background-color: themed("background-color;");
+        .content {
+            background-color: themed("section-background-color");
+        }
+    }
+}

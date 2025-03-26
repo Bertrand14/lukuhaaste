@@ -1,0 +1,54 @@
+$width: 80vw;
+$max-width: 30em;
+
+#search-bar-container {
+    width: $width;
+    max-width: $max-width;
+    position: relative;
+}
+
+#search-bar {
+    border: 1px solid hsl(0, 0%, 25%);
+    padding: 0.1em 0.5em;
+    border-radius: $border-radius;
+    height: 2em;
+
+    input {
+        border: none;
+        width: 100%;
+    }
+
+    & > div {
+        width: 100%;
+    }
+}
+
+#search-results {
+    position: absolute;
+    left: 0;
+    width: $width;
+    max-width: $max-width;
+
+    li {
+        padding-left: 0.5em;
+    }
+}
+
+.errorMessage {
+    position: absolute;
+    padding: 0.1em 1em;
+    width: fit-content;
+    color: gray;
+}
+
+@media (max-width: 640px) {
+    #search-bar-container,
+    #search-results {
+        width: 95vw;
+    }
+}
+@include themify($themes) {
+    #search-results {
+        background-color: lighten(themed("background-color"), 5%);
+    }
+};

@@ -1,0 +1,75 @@
+$themes: (
+    light: (
+        primary: hsl(111, 49%, 54%),
+        secondary: hsl(179, 49%, 54%),
+        success: hsl(120, 39%, 54%),
+        info: hsl(194, 66%, 61%),
+        warning: hsl(35, 84%, 62%),
+        danger: hsl(2, 64%, 58%),
+        background-color: hsl(0, 0%, 93%),
+        section-background-color: hsl(0, 0%, 89%),
+        section-background-light-only: hsl(0, 0%, 89%),
+        button-color: hsl(0, 0%, 85%),
+        text: hsl(0, 0%, 4%),
+        text-reverse: hsl(0, 0%, 96%),
+        progress-bar-ring: hsl(0, 0%, 75%),
+        progress-bar-shadow: hsl(0, 0%, 80%),
+    ),
+    dark: (
+        primary: hsl(111, 49%, 54%),
+        secondary: hsl(179, 49%, 54%),
+        success: hsl(120, 39%, 54%),
+        info: hsl(194, 66%, 61%),
+        warning: hsl(35, 84%, 62%),
+        danger: hsl(2, 64%, 58%),
+        background-color: hsl(0, 0%, 7%),
+        section-background-color: hsl(0, 0%, 11%),
+        section-background-light-only: transparent,
+        button-color: hsl(0, 0%, 15%),
+        text: hsl(0, 0%, 96%),
+        text-reverse: hsl(0, 0%, 4%),
+        progress-bar-ring: hsl(0, 0%, 17%),
+        progress-bar-shadow: hsl(0, 0%, 1%),
+    ),
+);
+
+$theme-map: map-get($themes, light) !default;
+
+$white: hsl(0, 0%, 96%);
+$black: hsl(0, 0%, 15%);
+
+$gradient-background: linear-gradient(
+    135deg,
+    rgba(darken(themed("primary"), 1%), 0.6),
+    rgba(darken(themed("secondary"), 1%), 0.6)
+);
+$gradient-color: linear-gradient(
+    135deg,
+    themed("primary"),
+    themed("secondary")
+);
+@mixin gradient-border {
+    background:
+        linear-gradient(themed("background-color") 0 0) padding-box,
+        $gradient-color border-box;
+    border: 1px solid transparent;
+}
+$padding-mini: 0.5em;
+$padding-small: 1em;
+$padding-large: 2em;
+$margin-mini: 0.5em;
+$margin-small: 1em;
+$margin-large: 2em;
+
+$border-radius: 0.5em;
+$rounding-small: 0.5em;
+
+/* TODO: light/dark mode */
+
+// Définition des couleurs pour chaque tableau
+$section-colors: (
+    actionsList: hsl(45, 50%, 17%),
+    usersList: hsl(140, 50%, 17%),
+    booksList: hsl(175, 50%, 17%),
+    eventsList: hsl(210, 50%, 17%),
+);
